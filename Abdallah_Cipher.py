@@ -17,6 +17,15 @@ def encryption(key,plaintext,op):
             while index <len(plaintext):
                 tranpostext+=plaintext[index]
                 index+=op
+        else:
+            l_index=row
+            r_index=op-row
+            while l_index<len(plaintext):
+                tr+=plaintext[l_index]
+                if r_index<len(plaintext):
+                    tranpostext+=plaintext[r_index]
+                l_index+=op
+                r_index+=op
     for x in tranpostext:
         ciphertex+=alpha[( alpha.index(x)+key)%26]
     return ciphertex
